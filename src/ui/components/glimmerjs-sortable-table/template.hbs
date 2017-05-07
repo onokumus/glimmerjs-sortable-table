@@ -6,10 +6,10 @@
   <table class="table table-bordered mt-5">
     <thead class="thead-inverse">
       <tr>
-        <th onclick={{action sortColumn 'id'}} role="button">ID</th>
-        <th onclick={{action sortColumn 'firstName'}} role="button">First Name</th>
-        <th onclick={{action sortColumn 'lastName'}} role="button">Last Name</th>
-        <th onclick={{action sortColumn 'knownFor'}} role="button">Known For</th>
+        <th class="{{iff (eq selectedTh 'id') 'bg-success'}} {{iff sortType 'is-asc'}}" onclick={{action sortColumn 'id'}} role="button">ID</th>
+        <th class="{{iff (eq selectedTh 'firstName') 'bg-success'}} {{iff sortType 'is-asc'}}" onclick={{action sortColumn 'firstName'}} role="button">First Name</th>
+        <th class="{{iff (eq selectedTh 'lastName') 'bg-success'}} {{iff sortType 'is-asc'}}" onclick={{action sortColumn 'lastName'}} role="button">Last Name</th>
+        <th class="{{iff (eq selectedTh 'knownFor') 'bg-success'}} {{iff sortType 'is-asc'}}" onclick={{action sortColumn 'knownFor'}} role="button">Known For</th>
       </tr>
     </thead>
     <tbody>

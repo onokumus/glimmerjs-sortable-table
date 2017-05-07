@@ -2,7 +2,7 @@ import Component, { tracked } from "@glimmer/component";
 
 export default class GlimmerjsSortableTable extends Component {
 
-@tracked activeRow;
+  @tracked activeRow;
   arry = [
     { id: 1, firstName: "Bram", lastName: "Moolenaar", knownFor: "Vim" },
     { id: 2, firstName: "Richard", lastName: "Stallman", knownFor: "GNU" },
@@ -14,6 +14,7 @@ export default class GlimmerjsSortableTable extends Component {
   ];
 
   @tracked newArry;
+  @tracked selectedTh: string = null;
   @tracked sortType: boolean = false;
 
   setRowActive(row) {
@@ -23,7 +24,7 @@ export default class GlimmerjsSortableTable extends Component {
   sortColumn(par) {
     let sorty = this.sortType;
     let arry = this.arry;
-    this.newArry = this.arry.sort(function (a, b) {
+    this.newArry = this.arry.sort(function(a, b) {
 
       if (typeof arry[0][par] === 'number') {
         return sorty ? (a[par] - b[par]) : (b[par] - a[par]);
@@ -46,6 +47,8 @@ export default class GlimmerjsSortableTable extends Component {
     this.sortType = !this.sortType;
 
     // this.activeRow = null;
+
+    this.selectedTh = par;
   }
   constructor(opts) {
     super(opts);
