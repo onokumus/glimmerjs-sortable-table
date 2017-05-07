@@ -1,3 +1,25 @@
-<div>
-  <h1>Welcome to Glimmer!</h1>
+<div class="container">
+  <h1>Glimmer.js sortable table</h1>
+
+  <table class="table table-bordered mt-5">
+    <thead class="thead-inverse">
+      <tr>
+        <th onclick={{action sortColumn 'id'}} role="button">ID</th>
+        <th onclick={{action sortColumn 'firstName'}} role="button">First Name</th>
+        <th onclick={{action sortColumn 'lastName'}} role="button">Last Name</th>
+        <th onclick={{action sortColumn 'knownFor'}} role="button">Known For</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each newArry key="@index" as |alias index|}}
+      <tr class="{{iff (eq activeRow index) 'bg-info'}}" onclick={{action setRowActive index}}>
+        <td>{{alias.id}}</td>
+        <td>{{alias.firstName}}</td>
+        <td>{{alias.lastName}}</td>
+        <td>{{alias.knownFor}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
 </div>
